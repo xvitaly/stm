@@ -1,0 +1,10 @@
+###########################################################################
+#                    WELCOME TO SIMPLE SERVER MANAGER!                    #
+#         This console program will fetch or list tokens via API.         #
+#                                                                         #
+#          (C) 2005 - 2014 EasyCoding Team. All rights reserved.          #
+#             Original author: V1TSK (vitaly@easycoding.org).             #
+#                                                                         #
+#          Official site: http://www.easycoding.org/projects/stm          #
+#                                                                         #
+###########################################################################
