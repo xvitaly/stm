@@ -6,6 +6,7 @@ using System.Reflection;
 using System.IO;
 using System.Net;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace stm
 {
@@ -122,7 +123,7 @@ namespace stm
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
             try { ShowSplash(Properties.Resources.WelcomeFileName); } catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
 
-            if (!(String.IsNullOrWhiteSpace(Properties.Settings.Default.APIKey)))
+            if (Regex.IsMatch(Properties.Settings.Default.APIKey, "^[0-9A-F]*$"))
             {
                 if (Args.Count() > 0)
                 {

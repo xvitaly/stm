@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddRes" xml:space="preserve">
-    <value>SteamID: {0}{1}Login token: {2}</value>
+    <value>Server's SteamID: {0}{1}Login token: {2}</value>
   </data>
   <data name="AddURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml</value>
@@ -152,6 +152,6 @@
     <value>..\Resources\WelcomeMsg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="WlxMsg" xml:space="preserve">
-    <value>Syntax: stm &lt;generate | list &gt;</value>
+    <value>Syntax: stm &lt;generate | list&gt;.</value>
   </data>
 </root>

@@ -25,7 +25,7 @@ namespace stm.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YOUR KEY HERE!")]
         public string APIKey {
             get {
                 return ((string)(this["APIKey"]));

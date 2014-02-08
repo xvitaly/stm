@@ -61,7 +61,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SteamID: {0}{1}Login token: {2}.
+        ///   Looks up a localized string similar to Server&apos;s SteamID: {0}{1}Login token: {2}.
         /// </summary>
         internal static string AddRes {
             get {
@@ -166,7 +166,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Syntax: stm &lt;generate | list &gt;.
+        ///   Looks up a localized string similar to Syntax: stm &lt;generate | list&gt;..
         /// </summary>
         internal static string WlxMsg {
             get {
