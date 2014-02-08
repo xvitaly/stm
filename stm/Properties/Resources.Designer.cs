@@ -115,7 +115,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Steam API key entered in config file. Please open stm.exe.config in text editor and enter your API key..
+        ///   Looks up a localized string similar to No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key..
         /// </summary>
         internal static string NoAPIKey {
             get {

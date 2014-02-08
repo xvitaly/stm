@@ -136,7 +136,7 @@
     <value>Generating new server token...</value>
   </data>
   <data name="NoAPIKey" xml:space="preserve">
-    <value>No Steam API key entered in config file. Please open stm.exe.config in text editor and enter your API key.</value>
+    <value>No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key.</value>
   </data>
   <data name="UnknownOpt" xml:space="preserve">
     <value>Unknown option. Start program without any options to view help.</value>
