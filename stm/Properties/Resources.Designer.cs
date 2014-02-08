@@ -79,7 +79,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Simple Servers Manager by EasyCoding Team.
+        ///   Looks up a localized string similar to Simple Server Manager by EasyCoding Team.
         /// </summary>
         internal static string AppName {
             get {

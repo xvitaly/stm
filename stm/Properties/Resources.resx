@@ -124,7 +124,7 @@
     <value>https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Simple Servers Manager by EasyCoding Team</value>
+    <value>Simple Server Manager by EasyCoding Team</value>
   </data>
   <data name="ExcptMsg" xml:space="preserve">
     <value>Exception caught: {0}.</value>

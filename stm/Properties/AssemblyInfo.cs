@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Simple Servers Manager")]
-[assembly: AssemblyDescription("Simple Servers Manager by EasyCoding Team")]
+[assembly: AssemblyTitle("Simple Server Manager")]
+[assembly: AssemblyDescription("Simple Server Manager by EasyCoding Team")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EasyCoding Team")]
-[assembly: AssemblyProduct("Simple Servers Manager")]
+[assembly: AssemblyProduct("Simple Server Manager")]
 [assembly: AssemblyCopyright("(c) 2005-2014 EasyCoding Team. All rights reserved.")]
 [assembly: AssemblyTrademark("EasyCoding, EasyCoding Software Group and EasyCoding Team are trademarks of EasyCoding Team.")]
 [assembly: AssemblyCulture("")]
