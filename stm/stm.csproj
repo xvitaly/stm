@@ -104,6 +104,9 @@
     <EmbeddedResource Include="Resources\WelcomeMsg.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="COPYING.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="stm.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
