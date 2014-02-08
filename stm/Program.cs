@@ -96,7 +96,7 @@ namespace stm
                     Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText);
                 }
             }
-            catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
 
         static void ListSrvKeys()
@@ -114,13 +114,13 @@ namespace stm
                     Console.WriteLine();
                 }
             }
-            catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
         
         static void Main(string[] Args)
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
-            try { ShowSplash(Properties.Resources.WelcomeFileName); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+            try { ShowSplash(Properties.Resources.WelcomeFileName); } catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
 
             if (!(String.IsNullOrWhiteSpace(Properties.Settings.Default.APIKey)))
             {

@@ -88,15 +88,6 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exception caught: {0}..
-        /// </summary>
-        internal static string ExcptMsg {
-            get {
-                return ResourceManager.GetString("ExcptMsg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml.
         /// </summary>
         internal static string FetchURI {

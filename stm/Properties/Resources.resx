@@ -126,9 +126,6 @@
   <data name="AppName" xml:space="preserve">
     <value>Simple Server Manager by EasyCoding Team</value>
   </data>
-  <data name="ExcptMsg" xml:space="preserve">
-    <value>Exception caught: {0}.</value>
-  </data>
   <data name="FetchURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml</value>
   </data>
