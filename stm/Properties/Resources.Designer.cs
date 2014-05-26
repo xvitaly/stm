@@ -88,6 +88,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}. Version: {1}..
+        /// </summary>
+        internal static string AppVerStr {
+            get {
+                return ResourceManager.GetString("AppVerStr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 440.
         /// </summary>
         internal static string DefaultAppID {

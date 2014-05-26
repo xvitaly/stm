@@ -138,6 +138,8 @@ namespace stm
                             break;
                         case "list": ListSrvKeys();
                             break;
+                        case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                            break;
                         default: Console.WriteLine(Properties.Resources.UnknownOpt);
                             break;
                     }
