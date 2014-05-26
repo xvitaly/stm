@@ -129,7 +129,7 @@ namespace stm
                 {
                     switch (Args[0])
                     {
-                        case "generate": GenerateSrvKey(!(String.IsNullOrWhiteSpace(Args[1])) ? Args[1] : Properties.Resources.DefaultAppID);
+                        case "generate": GenerateSrvKey((!(String.IsNullOrWhiteSpace(Args[1])) && Regex.IsMatch(Args[1], "^[0-9]*$")) ? Args[1] : Properties.Resources.DefaultAppID);
                             break;
                         case "list": ListSrvKeys();
                             break;
