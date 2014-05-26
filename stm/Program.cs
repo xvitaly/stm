@@ -94,7 +94,7 @@ namespace stm
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
-                    Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText);
+                    Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, AppID);
                 }
             }
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
@@ -111,11 +111,16 @@ namespace stm
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
-                    Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText);
+                    Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("appid")[i].InnerText);
                     Console.WriteLine();
                 }
             }
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+        }
+
+        static string ValidateAppID(string AppID)
+        {
+            return Regex.IsMatch(AppID, "^[0-9]*$") ? AppID : Properties.Resources.DefaultAppID;
         }
         
         static void Main(string[] Args)
@@ -129,7 +134,7 @@ namespace stm
                 {
                     switch (Args[0])
                     {
-                        case "generate": GenerateSrvKey((!(String.IsNullOrWhiteSpace(Args[1])) && Regex.IsMatch(Args[1], "^[0-9]*$")) ? Args[1] : Properties.Resources.DefaultAppID);
+                        case "generate": GenerateSrvKey((Args.Count() >= 2) ? ValidateAppID(Args[1]) : Properties.Resources.DefaultAppID);
                             break;
                         case "list": ListSrvKeys();
                             break;

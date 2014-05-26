@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddRes" xml:space="preserve">
-    <value>Server's SteamID: {0}{1}Login token: {2}</value>
+    <value>Server's SteamID: {0}{1}Login token: {2}{3}AppID: {4}</value>
   </data>
   <data name="AddURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml</value>

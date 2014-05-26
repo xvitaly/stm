@@ -61,7 +61,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server&apos;s SteamID: {0}{1}Login token: {2}.
+        ///   Looks up a localized string similar to Server&apos;s SteamID: {0}{1}Login token: {2}{3}AppID: {4}.
         /// </summary>
         internal static string AddRes {
             get {
