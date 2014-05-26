@@ -34,7 +34,7 @@ namespace stm
             return String.Format("appid={0}&key={1}", AppID, APIKey);
         }
 
-        static string SendAPIReq()
+        static string SendAPIReq(string AppID)
         {
             byte[] ByteReqC;
             string Result = "";
@@ -45,7 +45,7 @@ namespace stm
             WrQ.Method = "POST";
             WrQ.Timeout = 250000;
 
-            ByteReqC = Encoding.UTF8.GetBytes(GeneratePOSTRequest("440", Properties.Settings.Default.APIKey));
+            ByteReqC = Encoding.UTF8.GetBytes(GeneratePOSTRequest(AppID, Properties.Settings.Default.APIKey));
 
             WrQ.ContentType = "application/x-www-form-urlencoded";
             WrQ.ContentLength = ByteReqC.Length;
@@ -83,13 +83,13 @@ namespace stm
             return DnlStr;
         }
 
-        static void GenerateSrvKey()
+        static void GenerateSrvKey(string AppID)
         {
             Console.Write(Properties.Resources.MsgGn);
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendAPIReq());
+                XMLD.LoadXml(SendAPIReq(AppID));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -129,7 +129,7 @@ namespace stm
                 {
                     switch (Args[0])
                     {
-                        case "generate": GenerateSrvKey();
+                        case "generate": GenerateSrvKey(!(String.IsNullOrWhiteSpace(Args[1])) ? Args[1] : Properties.Resources.DefaultAppID);
                             break;
                         case "list": ListSrvKeys();
                             break;
