@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddRes" xml:space="preserve">
+  <data name="MsgResGenAccount" xml:space="preserve">
     <value>Server's SteamID: {0}{1}Login token: {2}{3}AppID: {4}</value>
   </data>
-  <data name="AddURI" xml:space="preserve">
+  <data name="APICreateAccountURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml</value>
   </data>
-  <data name="APIResetToken" xml:space="preserve">
+  <data name="APIGetAccountListURI" xml:space="preserve">
+    <value>https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml</value>
+  </data>
+  <data name="APIGetServerSteamIDsByIPURI" xml:space="preserve">
+    <value>https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml</value>
+  </data>
+  <data name="APIResetTokenURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/ResetLoginToken/v0001/?format=xml</value>
   </data>
   <data name="AppName" xml:space="preserve">
@@ -135,31 +141,25 @@
   <data name="DefaultAppID" xml:space="preserve">
     <value>440</value>
   </data>
-  <data name="FetchURI" xml:space="preserve">
-    <value>https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml</value>
-  </data>
-  <data name="GetIdByIP" xml:space="preserve">
-    <value>https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml</value>
-  </data>
-  <data name="MsgAPIFetch" xml:space="preserve">
+  <data name="MsgGetIDProgress" xml:space="preserve">
     <value>Sending your request to server...</value>
   </data>
-  <data name="MsgFt" xml:space="preserve">
+  <data name="MsgFetchListProgress" xml:space="preserve">
     <value>Fetching list of registered servers...</value>
   </data>
-  <data name="MsgGn" xml:space="preserve">
+  <data name="MsgGenTokenProgress" xml:space="preserve">
     <value>Generating new server token...</value>
   </data>
-  <data name="NoAPIKey" xml:space="preserve">
+  <data name="MsgErrNoKey" xml:space="preserve">
     <value>No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key.</value>
   </data>
-  <data name="ResetToken" xml:space="preserve">
+  <data name="MsgResetResult" xml:space="preserve">
     <value>New login token: {0}</value>
   </data>
-  <data name="SrvByIP" xml:space="preserve">
+  <data name="MsgGetIDResult" xml:space="preserve">
     <value>Server's IP: {0}{1}SteamID: {2}</value>
   </data>
-  <data name="UnknownOpt" xml:space="preserve">
+  <data name="MsgErrUnknownOption" xml:space="preserve">
     <value>Unknown option. Start program without any options to view help.</value>
   </data>
   <data name="UserAgent" xml:space="preserve">
@@ -174,5 +174,11 @@
   </data>
   <data name="WlxMsg" xml:space="preserve">
     <value>Syntax: stm &lt;generate | list&gt;.</value>
+  </data>
+  <data name="MsgErrNotEnough" xml:space="preserve">
+    <value>Error: not enough options for selected method!</value>
+  </data>
+  <data name="MsgResetRequest" xml:space="preserve">
+    <value>Requesting new token for {0}...</value>
   </data>
 </root>

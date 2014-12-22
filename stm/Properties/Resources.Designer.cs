@@ -61,29 +61,38 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server&apos;s SteamID: {0}{1}Login token: {2}{3}AppID: {4}.
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml.
         /// </summary>
-        internal static string AddRes {
+        internal static string APICreateAccountURI {
             get {
-                return ResourceManager.GetString("AddRes", resourceCulture);
+                return ResourceManager.GetString("APICreateAccountURI", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml.
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml.
         /// </summary>
-        internal static string AddURI {
+        internal static string APIGetAccountListURI {
             get {
-                return ResourceManager.GetString("AddURI", resourceCulture);
+                return ResourceManager.GetString("APIGetAccountListURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml.
+        /// </summary>
+        internal static string APIGetServerSteamIDsByIPURI {
+            get {
+                return ResourceManager.GetString("APIGetServerSteamIDsByIPURI", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/ResetLoginToken/v0001/?format=xml.
         /// </summary>
-        internal static string APIResetToken {
+        internal static string APIResetTokenURI {
             get {
-                return ResourceManager.GetString("APIResetToken", resourceCulture);
+                return ResourceManager.GetString("APIResetTokenURI", resourceCulture);
             }
         }
         
@@ -115,83 +124,92 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml.
-        /// </summary>
-        internal static string FetchURI {
-            get {
-                return ResourceManager.GetString("FetchURI", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml.
-        /// </summary>
-        internal static string GetIdByIP {
-            get {
-                return ResourceManager.GetString("GetIdByIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sending your request to server....
-        /// </summary>
-        internal static string MsgAPIFetch {
-            get {
-                return ResourceManager.GetString("MsgAPIFetch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fetching list of registered servers....
-        /// </summary>
-        internal static string MsgFt {
-            get {
-                return ResourceManager.GetString("MsgFt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Generating new server token....
-        /// </summary>
-        internal static string MsgGn {
-            get {
-                return ResourceManager.GetString("MsgGn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key..
         /// </summary>
-        internal static string NoAPIKey {
+        internal static string MsgErrNoKey {
             get {
-                return ResourceManager.GetString("NoAPIKey", resourceCulture);
+                return ResourceManager.GetString("MsgErrNoKey", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New login token: {0}.
+        ///   Looks up a localized string similar to Error: not enough options for selected method!.
         /// </summary>
-        internal static string ResetToken {
+        internal static string MsgErrNotEnough {
             get {
-                return ResourceManager.GetString("ResetToken", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server&apos;s IP: {0}{1}SteamID: {2}.
-        /// </summary>
-        internal static string SrvByIP {
-            get {
-                return ResourceManager.GetString("SrvByIP", resourceCulture);
+                return ResourceManager.GetString("MsgErrNotEnough", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Unknown option. Start program without any options to view help..
         /// </summary>
-        internal static string UnknownOpt {
+        internal static string MsgErrUnknownOption {
             get {
-                return ResourceManager.GetString("UnknownOpt", resourceCulture);
+                return ResourceManager.GetString("MsgErrUnknownOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fetching list of registered servers....
+        /// </summary>
+        internal static string MsgFetchListProgress {
+            get {
+                return ResourceManager.GetString("MsgFetchListProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generating new server token....
+        /// </summary>
+        internal static string MsgGenTokenProgress {
+            get {
+                return ResourceManager.GetString("MsgGenTokenProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending your request to server....
+        /// </summary>
+        internal static string MsgGetIDProgress {
+            get {
+                return ResourceManager.GetString("MsgGetIDProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server&apos;s IP: {0}{1}SteamID: {2}.
+        /// </summary>
+        internal static string MsgGetIDResult {
+            get {
+                return ResourceManager.GetString("MsgGetIDResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requesting new token for {0}....
+        /// </summary>
+        internal static string MsgResetRequest {
+            get {
+                return ResourceManager.GetString("MsgResetRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New login token: {0}.
+        /// </summary>
+        internal static string MsgResetResult {
+            get {
+                return ResourceManager.GetString("MsgResetResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server&apos;s SteamID: {0}{1}Login token: {2}{3}AppID: {4}.
+        /// </summary>
+        internal static string MsgResGenAccount {
+            get {
+                return ResourceManager.GetString("MsgResGenAccount", resourceCulture);
             }
         }
         

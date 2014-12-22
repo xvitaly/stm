@@ -85,16 +85,16 @@ namespace stm
 
         static void APICreateAccount(string AppID)
         {
-            Console.Write(Properties.Resources.MsgGn);
+            Console.Write(Properties.Resources.MsgGenTokenProgress);
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendAPIRequest(Properties.Resources.AddURI, String.Format("appid={0}&key={1}", AppID, Properties.Settings.Default.APIKey)));
+                XMLD.LoadXml(SendAPIRequest(Properties.Resources.APICreateAccountURI, String.Format("appid={0}&key={1}", AppID, Properties.Settings.Default.APIKey)));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
-                    Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, AppID);
+                    Console.WriteLine(Properties.Resources.MsgResGenAccount, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, AppID);
                 }
             }
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
@@ -102,16 +102,16 @@ namespace stm
 
         static void APIGetAccountList()
         {
-            Console.Write(Properties.Resources.MsgFt);
+            Console.Write(Properties.Resources.MsgFetchListProgress);
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.FetchURI, Properties.Settings.Default.APIKey)));
+                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetAccountListURI, Properties.Settings.Default.APIKey)));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
-                    Console.WriteLine(Properties.Resources.AddRes, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("appid")[i].InnerText);
+                    Console.WriteLine(Properties.Resources.MsgResGenAccount, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("appid")[i].InnerText);
                     Console.WriteLine();
                 }
             }
@@ -120,16 +120,16 @@ namespace stm
 
         static void APIGetServerSteamIDsByIP(string Rx)
         {
-            Console.Write(Properties.Resources.MsgAPIFetch);
+            Console.Write(Properties.Resources.MsgGetIDProgress);
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.GetIdByIP, Properties.Settings.Default.APIKey, Rx)));
+                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetServerSteamIDsByIPURI, Properties.Settings.Default.APIKey, Rx)));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
-                    Console.WriteLine(Properties.Resources.SrvByIP, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    Console.WriteLine(Properties.Resources.MsgGetIDResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
                     Console.WriteLine();
                 }
             }
@@ -138,16 +138,16 @@ namespace stm
 
         static void APIResetLoginToken(string ServerID)
         {
-            Console.Write(Properties.Resources.MsgGn);
+            Console.Write(Properties.Resources.MsgResetRequest, ServerID);
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendAPIRequest(Properties.Resources.APIResetToken, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
+                XMLD.LoadXml(SendAPIRequest(Properties.Resources.APIResetTokenURI, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
-                    Console.WriteLine(Properties.Resources.ResetToken, XMLD.GetElementsByTagName("login_token")[i].InnerText);
+                    Console.WriteLine(Properties.Resources.MsgResetResult, XMLD.GetElementsByTagName("login_token")[i].InnerText);
                 }
             }
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
@@ -170,17 +170,17 @@ namespace stm
                             break;
                         case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
                             break;
-                        case "getid": APIGetServerSteamIDsByIP(Args[1]);
+                        case "getid": if (Args.Count() >= 2) { APIGetServerSteamIDsByIP(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
-                        case "reset": APIResetLoginToken(Args[1]);
+                        case "reset": if (Args.Count() >= 2) { APIResetLoginToken(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
-                        default: Console.WriteLine(Properties.Resources.UnknownOpt);
+                        default: Console.WriteLine(Properties.Resources.MsgErrUnknownOption);
                             break;
                     }
                 }
                 else { Console.WriteLine(Properties.Resources.WlxMsg); }
             }
-            else { Console.WriteLine(Properties.Resources.NoAPIKey); }
+            else { Console.WriteLine(Properties.Resources.MsgErrNoKey); }
 
             #if DEBUG
             Console.ReadKey();
