@@ -79,6 +79,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/ResetLoginToken/v0001/?format=xml.
+        /// </summary>
+        internal static string APIResetToken {
+            get {
+                return ResourceManager.GetString("APIResetToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Simple Server Manager by EasyCoding Team.
         /// </summary>
         internal static string AppName {
@@ -156,6 +165,15 @@ namespace stm.Properties {
         internal static string NoAPIKey {
             get {
                 return ResourceManager.GetString("NoAPIKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New login token: {0}.
+        /// </summary>
+        internal static string ResetToken {
+            get {
+                return ResourceManager.GetString("ResetToken", resourceCulture);
             }
         }
         

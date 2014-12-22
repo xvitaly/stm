@@ -123,6 +123,9 @@
   <data name="AddURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml</value>
   </data>
+  <data name="APIResetToken" xml:space="preserve">
+    <value>https://api.steampowered.com/IGameServersService/ResetLoginToken/v0001/?format=xml</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Simple Server Manager by EasyCoding Team</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="NoAPIKey" xml:space="preserve">
     <value>No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key.</value>
+  </data>
+  <data name="ResetToken" xml:space="preserve">
+    <value>New login token: {0}</value>
   </data>
   <data name="SrvByIP" xml:space="preserve">
     <value>Server's IP: {0}{1}SteamID: {2}</value>

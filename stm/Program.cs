@@ -136,6 +136,23 @@ namespace stm
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
 
+        static void APIResetLoginToken(string ServerID)
+        {
+            Console.Write(Properties.Resources.MsgGn);
+            try
+            {
+                XmlDocument XMLD = new XmlDocument();
+                XMLD.LoadXml(SendAPIRequest(Properties.Resources.APIResetToken, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
+                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
+                for (int i = 0; i < XMLNList.Count; i++)
+                {
+                    Console.WriteLine(Properties.Resources.ResetToken, XMLD.GetElementsByTagName("login_token")[i].InnerText);
+                }
+            }
+            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+        }
+
         static void Main(string[] Args)
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
@@ -154,6 +171,8 @@ namespace stm
                         case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
                             break;
                         case "getid": APIGetServerSteamIDsByIP(Args[1]);
+                            break;
+                        case "reset": APIResetLoginToken(Args[1]);
                             break;
                         default: Console.WriteLine(Properties.Resources.UnknownOpt);
                             break;
