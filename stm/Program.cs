@@ -123,9 +123,8 @@ namespace stm
             return Regex.IsMatch(AppID, "^[0-9]*$") ? AppID : Properties.Resources.DefaultAppID;
         }
 
-        static void GetServerIDbyIP(string Rx)
+        static void GetServerIDByIP(string Rx)
         {
-
             Console.Write(Properties.Resources.MsgAPIFetch);
             try
             {
@@ -159,7 +158,7 @@ namespace stm
                             break;
                         case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
                             break;
-                        case "getid": GetServerIDbyIP(Args[1]);
+                        case "getid": GetServerIDByIP(Args[1]);
                             break;
                         default: Console.WriteLine(Properties.Resources.UnknownOpt);
                             break;
