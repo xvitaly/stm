@@ -29,23 +29,18 @@ namespace stm
             }
         }
 
-        static string GeneratePOSTRequest(string AppID, string APIKey)
-        {
-            return String.Format("appid={0}&key={1}", AppID, APIKey);
-        }
-
-        static string SendAPIReq(string AppID)
+        static string SendAPIRequest(string APIURL, string APIReq)
         {
             byte[] ByteReqC;
             string Result = "";
 
-            HttpWebRequest WrQ = (HttpWebRequest)WebRequest.Create(Properties.Resources.AddURI);
+            HttpWebRequest WrQ = (HttpWebRequest)WebRequest.Create(APIURL);
 
             WrQ.UserAgent = Properties.Resources.UserAgent;
             WrQ.Method = "POST";
             WrQ.Timeout = 250000;
 
-            ByteReqC = Encoding.UTF8.GetBytes(GeneratePOSTRequest(AppID, Properties.Settings.Default.APIKey));
+            ByteReqC = Encoding.UTF8.GetBytes(APIReq);
 
             WrQ.ContentType = "application/x-www-form-urlencoded";
             WrQ.ContentLength = ByteReqC.Length;
@@ -83,13 +78,18 @@ namespace stm
             return DnlStr;
         }
 
-        static void GenerateSrvKey(string AppID)
+        static string ValidateAppID(string AppID)
+        {
+            return Regex.IsMatch(AppID, "^[0-9]*$") ? AppID : Properties.Resources.DefaultAppID;
+        }
+
+        static void APICreateAccount(string AppID)
         {
             Console.Write(Properties.Resources.MsgGn);
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendAPIReq(AppID));
+                XMLD.LoadXml(SendAPIRequest(Properties.Resources.AddURI, String.Format("appid={0}&key={1}", AppID, Properties.Settings.Default.APIKey)));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -100,7 +100,7 @@ namespace stm
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
 
-        static void ListSrvKeys()
+        static void APIGetAccountList()
         {
             Console.Write(Properties.Resources.MsgFt);
             try
@@ -118,12 +118,7 @@ namespace stm
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
 
-        static string ValidateAppID(string AppID)
-        {
-            return Regex.IsMatch(AppID, "^[0-9]*$") ? AppID : Properties.Resources.DefaultAppID;
-        }
-
-        static void GetServerIDByIP(string Rx)
+        static void APIGetServerSteamIDsByIP(string Rx)
         {
             Console.Write(Properties.Resources.MsgAPIFetch);
             try
@@ -152,13 +147,13 @@ namespace stm
                 {
                     switch (Args[0])
                     {
-                        case "generate": GenerateSrvKey((Args.Count() >= 2) ? ValidateAppID(Args[1]) : Properties.Resources.DefaultAppID);
+                        case "generate": APICreateAccount((Args.Count() >= 2) ? ValidateAppID(Args[1]) : Properties.Resources.DefaultAppID);
                             break;
-                        case "list": ListSrvKeys();
+                        case "list": APIGetAccountList();
                             break;
                         case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
                             break;
-                        case "getid": GetServerIDByIP(Args[1]);
+                        case "getid": APIGetServerSteamIDsByIP(Args[1]);
                             break;
                         default: Console.WriteLine(Properties.Resources.UnknownOpt);
                             break;
