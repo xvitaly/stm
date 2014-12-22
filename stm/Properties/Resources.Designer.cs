@@ -79,6 +79,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetServerIPsBySteamID/v0001/?key={0}&amp;server_steamids[0]={1}&amp;format=xml.
+        /// </summary>
+        internal static string APIGetServerIPsBySteamIDURI {
+            get {
+                return ResourceManager.GetString("APIGetServerIPsBySteamIDURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml.
         /// </summary>
         internal static string APIGetServerSteamIDsByIPURI {
@@ -169,7 +178,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sending your request to server....
+        ///   Looks up a localized string similar to Trying to get SteamID from requested IP....
         /// </summary>
         internal static string MsgGetIDProgress {
             get {
@@ -178,11 +187,29 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server&apos;s IP: {0}{1}SteamID: {2}.
+        ///   Looks up a localized string similar to IP: {0}{1}SteamID: {2}.
         /// </summary>
         internal static string MsgGetIDResult {
             get {
                 return ResourceManager.GetString("MsgGetIDResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trying to get IP address from requested SteamID....
+        /// </summary>
+        internal static string MsgGetIPProgress {
+            get {
+                return ResourceManager.GetString("MsgGetIPProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP: {0}{1}SteamID: {2}.
+        /// </summary>
+        internal static string MsgGetIPResult {
+            get {
+                return ResourceManager.GetString("MsgGetIPResult", resourceCulture);
             }
         }
         

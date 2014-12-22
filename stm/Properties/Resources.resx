@@ -142,7 +142,7 @@
     <value>440</value>
   </data>
   <data name="MsgGetIDProgress" xml:space="preserve">
-    <value>Sending your request to server...</value>
+    <value>Trying to get SteamID from requested IP...</value>
   </data>
   <data name="MsgFetchListProgress" xml:space="preserve">
     <value>Fetching list of registered servers...</value>
@@ -157,7 +157,7 @@
     <value>New login token: {0}</value>
   </data>
   <data name="MsgGetIDResult" xml:space="preserve">
-    <value>Server's IP: {0}{1}SteamID: {2}</value>
+    <value>IP: {0}{1}SteamID: {2}</value>
   </data>
   <data name="MsgErrUnknownOption" xml:space="preserve">
     <value>Unknown option. Start program without any options to view help.</value>
@@ -175,8 +175,17 @@
   <data name="WlxMsg" xml:space="preserve">
     <value>Syntax: stm &lt;generate | list&gt;.</value>
   </data>
+  <data name="APIGetServerIPsBySteamIDURI" xml:space="preserve">
+    <value>https://api.steampowered.com/IGameServersService/GetServerIPsBySteamID/v0001/?key={0}&amp;server_steamids[0]={1}&amp;format=xml</value>
+  </data>
   <data name="MsgErrNotEnough" xml:space="preserve">
     <value>Error: not enough options for selected method!</value>
+  </data>
+  <data name="MsgGetIPProgress" xml:space="preserve">
+    <value>Trying to get IP address from requested SteamID...</value>
+  </data>
+  <data name="MsgGetIPResult" xml:space="preserve">
+    <value>IP: {0}{1}SteamID: {2}</value>
   </data>
   <data name="MsgResetRequest" xml:space="preserve">
     <value>Requesting new token for {0}...</value>

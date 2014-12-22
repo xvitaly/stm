@@ -153,6 +153,24 @@ namespace stm
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
 
+        static void APIGetServerIPsBySteamID(string ServerID)
+        {
+            Console.Write(Properties.Resources.MsgGetIPProgress);
+            try
+            {
+                XmlDocument XMLD = new XmlDocument();
+                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetServerIPsBySteamIDURI, Properties.Settings.Default.APIKey, ServerID)));
+                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
+                for (int i = 0; i < XMLNList.Count; i++)
+                {
+                    Console.WriteLine(Properties.Resources.MsgGetIPResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    Console.WriteLine();
+                }
+            }
+            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+        }
+
         static void Main(string[] Args)
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
@@ -173,6 +191,8 @@ namespace stm
                         case "getid": if (Args.Count() >= 2) { APIGetServerSteamIDsByIP(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
                         case "reset": if (Args.Count() >= 2) { APIResetLoginToken(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                            break;
+                        case "getip": if (Args.Count() >= 2) { APIGetServerIPsBySteamID(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
                         default: Console.WriteLine(Properties.Resources.MsgErrUnknownOption);
                             break;
