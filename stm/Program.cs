@@ -130,7 +130,6 @@ namespace stm
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
                     Console.WriteLine(Properties.Resources.MsgGetIDResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
-                    Console.WriteLine();
                 }
             }
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
@@ -165,8 +164,18 @@ namespace stm
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
                     Console.WriteLine(Properties.Resources.MsgGetIPResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
-                    Console.WriteLine();
                 }
+            }
+            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+        }
+
+        static void APISetMemo(string ServerID, string Memo)
+        {
+            Console.Write(Properties.Resources.MsgSetMemoProgress, ServerID);
+            try
+            {
+                SendAPIRequest(Properties.Resources.APISetMemoURI, String.Format("steamid={0}&key={1}&memo={2}", ServerID, Properties.Settings.Default.APIKey, Memo));
+                Console.WriteLine(" Done.{0}", Environment.NewLine);
             }
             catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
         }
@@ -193,6 +202,8 @@ namespace stm
                         case "reset": if (Args.Count() >= 2) { APIResetLoginToken(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
                         case "getip": if (Args.Count() >= 2) { APIGetServerIPsBySteamID(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                            break;
+                        case "comment": if (Args.Count() >= 3) { APISetMemo(Args[1], Args[2]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
                         default: Console.WriteLine(Properties.Resources.MsgErrUnknownOption);
                             break;

@@ -106,6 +106,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/SetMemo/v0001/.
+        /// </summary>
+        internal static string APISetMemoURI {
+            get {
+                return ResourceManager.GetString("APISetMemoURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Simple Server Manager by EasyCoding Team.
         /// </summary>
         internal static string AppName {
@@ -237,6 +246,15 @@ namespace stm.Properties {
         internal static string MsgResGenAccount {
             get {
                 return ResourceManager.GetString("MsgResGenAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting new memo for server {0}....
+        /// </summary>
+        internal static string MsgSetMemoProgress {
+            get {
+                return ResourceManager.GetString("MsgSetMemoProgress", resourceCulture);
             }
         }
         

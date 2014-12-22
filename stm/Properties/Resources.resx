@@ -190,4 +190,10 @@
   <data name="MsgResetRequest" xml:space="preserve">
     <value>Requesting new token for {0}...</value>
   </data>
+  <data name="APISetMemoURI" xml:space="preserve">
+    <value>https://api.steampowered.com/IGameServersService/SetMemo/v0001/</value>
+  </data>
+  <data name="MsgSetMemoProgress" xml:space="preserve">
+    <value>Setting new memo for server {0}...</value>
+  </data>
 </root>
