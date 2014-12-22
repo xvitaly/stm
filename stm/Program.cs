@@ -72,13 +72,13 @@ namespace stm
             return Result;
         }
 
-        static string FetchStringHTTP()
+        static string FetchStringHTTP(string StrF)
         {
             string DnlStr = "";
             using (WebClient Downloader = new WebClient())
             {
                 Downloader.Headers.Add("User-Agent", Properties.Resources.UserAgent);
-                DnlStr = Downloader.DownloadString(String.Format(Properties.Resources.FetchURI, Properties.Settings.Default.APIKey));
+                DnlStr = Downloader.DownloadString(StrF);
             }
             return DnlStr;
         }
@@ -106,7 +106,7 @@ namespace stm
             try
             {
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(FetchStringHTTP());
+                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.FetchURI, Properties.Settings.Default.APIKey)));
                 Console.WriteLine(" Done.{0}", Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -122,7 +122,26 @@ namespace stm
         {
             return Regex.IsMatch(AppID, "^[0-9]*$") ? AppID : Properties.Resources.DefaultAppID;
         }
-        
+
+        static void GetServerIDbyIP(string Rx)
+        {
+
+            Console.Write(Properties.Resources.MsgAPIFetch);
+            try
+            {
+                XmlDocument XMLD = new XmlDocument();
+                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.GetIdByIP, Properties.Settings.Default.APIKey, Rx)));
+                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
+                for (int i = 0; i < XMLNList.Count; i++)
+                {
+                    Console.WriteLine(Properties.Resources.SrvByIP, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    Console.WriteLine();
+                }
+            }
+            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+        }
+
         static void Main(string[] Args)
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
@@ -139,6 +158,8 @@ namespace stm
                         case "list": ListSrvKeys();
                             break;
                         case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                            break;
+                        case "getid": GetServerIDbyIP(Args[1]);
                             break;
                         default: Console.WriteLine(Properties.Resources.UnknownOpt);
                             break;

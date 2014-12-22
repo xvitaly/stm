@@ -115,6 +115,24 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml.
+        /// </summary>
+        internal static string GetIdByIP {
+            get {
+                return ResourceManager.GetString("GetIdByIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending your request to server....
+        /// </summary>
+        internal static string MsgAPIFetch {
+            get {
+                return ResourceManager.GetString("MsgAPIFetch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fetching list of registered servers....
         /// </summary>
         internal static string MsgFt {
@@ -138,6 +156,15 @@ namespace stm.Properties {
         internal static string NoAPIKey {
             get {
                 return ResourceManager.GetString("NoAPIKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server&apos;s IP: {0}{1}SteamID: {2}.
+        /// </summary>
+        internal static string SrvByIP {
+            get {
+                return ResourceManager.GetString("SrvByIP", resourceCulture);
             }
         }
         

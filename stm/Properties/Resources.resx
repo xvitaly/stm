@@ -135,6 +135,12 @@
   <data name="FetchURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/GetAccountList/v0001/?key={0}&amp;format=xml</value>
   </data>
+  <data name="GetIdByIP" xml:space="preserve">
+    <value>https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001/?key={0}&amp;server_ips[0]={1}&amp;format=xml</value>
+  </data>
+  <data name="MsgAPIFetch" xml:space="preserve">
+    <value>Sending your request to server...</value>
+  </data>
   <data name="MsgFt" xml:space="preserve">
     <value>Fetching list of registered servers...</value>
   </data>
@@ -143,6 +149,9 @@
   </data>
   <data name="NoAPIKey" xml:space="preserve">
     <value>No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key.</value>
+  </data>
+  <data name="SrvByIP" xml:space="preserve">
+    <value>Server's IP: {0}{1}SteamID: {2}</value>
   </data>
   <data name="UnknownOpt" xml:space="preserve">
     <value>Unknown option. Start program without any options to view help.</value>
