@@ -205,6 +205,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wrong input. The second argument must be a valid IP address with port. Example: 127.0.0.1:27015..
+        /// </summary>
+        internal static string MsgGetIDWrongInput {
+            get {
+                return ResourceManager.GetString("MsgGetIDWrongInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trying to get IP address from requested SteamID....
         /// </summary>
         internal static string MsgGetIPProgress {
@@ -281,7 +290,7 @@ namespace stm.Properties {
         ///#                    WELCOME TO SIMPLE SERVER MANAGER!                    #
         ///#         This console program will fetch or list tokens via API.         #
         ///#                                                                         #
-        ///#          (C) 2005 - 2014 EasyCoding Team. All rights reserved.          #
+        ///#          (C) 2005 - 2015 EasyCoding Team. All rights reserved.          #
         ///#             Original author: V1TSK (vitaly@easycoding.org).             #
         ///#                                                  [rest of string was truncated]&quot;;.
         /// </summary>

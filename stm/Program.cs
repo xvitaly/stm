@@ -120,19 +120,23 @@ namespace stm
 
         static void APIGetServerSteamIDsByIP(string Rx)
         {
-            Console.Write(Properties.Resources.MsgGetIDProgress);
-            try
+            if (Regex.IsMatch(Rx, @"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$"))
             {
-                XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetServerSteamIDsByIPURI, Properties.Settings.Default.APIKey, Rx)));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
-                XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
-                for (int i = 0; i < XMLNList.Count; i++)
+                Console.Write(Properties.Resources.MsgGetIDProgress);
+                try
                 {
-                    Console.WriteLine(Properties.Resources.MsgGetIDResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    XmlDocument XMLD = new XmlDocument();
+                    XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetServerSteamIDsByIPURI, Properties.Settings.Default.APIKey, Rx)));
+                    Console.WriteLine(" Done.{0}", Environment.NewLine);
+                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
+                    for (int i = 0; i < XMLNList.Count; i++)
+                    {
+                        Console.WriteLine(Properties.Resources.MsgGetIDResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    }
                 }
+                catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
             }
-            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+            else { Console.WriteLine(Properties.Resources.MsgGetIDWrongInput); }
         }
 
         static void APIResetLoginToken(string ServerID)

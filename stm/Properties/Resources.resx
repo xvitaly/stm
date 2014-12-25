@@ -196,4 +196,7 @@
   <data name="MsgSetMemoProgress" xml:space="preserve">
     <value>Setting new memo for server {0}...</value>
   </data>
+  <data name="MsgGetIDWrongInput" xml:space="preserve">
+    <value>Wrong input. The second argument must be a valid IP address with port. Example: 127.0.0.1:27015.</value>
+  </data>
 </root>
