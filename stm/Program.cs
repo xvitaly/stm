@@ -120,7 +120,7 @@ namespace stm
 
         static void APIGetServerSteamIDsByIP(string Rx)
         {
-            if (Regex.IsMatch(Rx, @"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$"))
+            if (Regex.IsMatch(Rx, Properties.Resources.RegexIPAddress))
             {
                 Console.Write(Properties.Resources.MsgGetIDProgress);
                 try

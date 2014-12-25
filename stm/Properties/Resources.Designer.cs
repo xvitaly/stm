@@ -268,6 +268,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$.
+        /// </summary>
+        internal static string RegexIPAddress {
+            get {
+                return ResourceManager.GetString("RegexIPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0.
         /// </summary>
         internal static string UserAgent {
