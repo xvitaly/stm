@@ -196,8 +196,11 @@
   <data name="MsgSetMemoProgress" xml:space="preserve">
     <value>Setting new memo for server {0}...</value>
   </data>
-  <data name="MsgGetIDWrongInput" xml:space="preserve">
+  <data name="MsgIPAddrWrongInput" xml:space="preserve">
     <value>Wrong input. The second argument must be a valid IP address with port. Example: 127.0.0.1:27015.</value>
+  </data>
+  <data name="MsgServerIDWrongInput" xml:space="preserve">
+    <value>Wrong input. The second argument must be a valid server ID. Example: 012345678901234567.</value>
   </data>
   <data name="RegexIPAddress" xml:space="preserve">
     <value>^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$</value>

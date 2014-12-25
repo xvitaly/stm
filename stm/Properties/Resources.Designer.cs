@@ -205,15 +205,6 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wrong input. The second argument must be a valid IP address with port. Example: 127.0.0.1:27015..
-        /// </summary>
-        internal static string MsgGetIDWrongInput {
-            get {
-                return ResourceManager.GetString("MsgGetIDWrongInput", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Trying to get IP address from requested SteamID....
         /// </summary>
         internal static string MsgGetIPProgress {
@@ -228,6 +219,15 @@ namespace stm.Properties {
         internal static string MsgGetIPResult {
             get {
                 return ResourceManager.GetString("MsgGetIPResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong input. The second argument must be a valid IP address with port. Example: 127.0.0.1:27015..
+        /// </summary>
+        internal static string MsgIPAddrWrongInput {
+            get {
+                return ResourceManager.GetString("MsgIPAddrWrongInput", resourceCulture);
             }
         }
         
@@ -255,6 +255,15 @@ namespace stm.Properties {
         internal static string MsgResGenAccount {
             get {
                 return ResourceManager.GetString("MsgResGenAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong input. The second argument must be a valid server ID. Example: 012345678901234567..
+        /// </summary>
+        internal static string MsgServerIDWrongInput {
+            get {
+                return ResourceManager.GetString("MsgServerIDWrongInput", resourceCulture);
             }
         }
         

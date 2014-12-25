@@ -136,7 +136,7 @@ namespace stm
                 }
                 catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
             }
-            else { Console.WriteLine(Properties.Resources.MsgGetIDWrongInput); }
+            else { Console.WriteLine(Properties.Resources.MsgIPAddrWrongInput); }
         }
 
         static void APIResetLoginToken(string ServerID)
@@ -157,26 +157,28 @@ namespace stm
                 }
                 catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
             }
-            else
-            {
-            }
+            else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
         }
 
         static void APIGetServerIPsBySteamID(string ServerID)
         {
-            Console.Write(Properties.Resources.MsgGetIPProgress);
-            try
+            if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
-                XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetServerIPsBySteamIDURI, Properties.Settings.Default.APIKey, ServerID)));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
-                XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
-                for (int i = 0; i < XMLNList.Count; i++)
+                Console.Write(Properties.Resources.MsgGetIPProgress);
+                try
                 {
-                    Console.WriteLine(Properties.Resources.MsgGetIPResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    XmlDocument XMLD = new XmlDocument();
+                    XMLD.LoadXml(FetchStringHTTP(String.Format(Properties.Resources.APIGetServerIPsBySteamIDURI, Properties.Settings.Default.APIKey, ServerID)));
+                    Console.WriteLine(" Done.{0}", Environment.NewLine);
+                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
+                    for (int i = 0; i < XMLNList.Count; i++)
+                    {
+                        Console.WriteLine(Properties.Resources.MsgGetIPResult, XMLD.GetElementsByTagName("addr")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("steamid")[i].InnerText);
+                    }
                 }
+                catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
             }
-            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+            else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
         }
 
         static void APISetMemo(string ServerID, string Memo)
