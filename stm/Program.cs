@@ -183,13 +183,17 @@ namespace stm
 
         static void APISetMemo(string ServerID, string Memo)
         {
-            Console.Write(Properties.Resources.MsgSetMemoProgress, ServerID);
-            try
+            if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
-                SendAPIRequest(Properties.Resources.APISetMemoURI, String.Format("steamid={0}&key={1}&memo={2}", ServerID, Properties.Settings.Default.APIKey, Memo));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                Console.Write(Properties.Resources.MsgSetMemoProgress, ServerID);
+                try
+                {
+                    SendAPIRequest(Properties.Resources.APISetMemoURI, String.Format("steamid={0}&key={1}&memo={2}", ServerID, Properties.Settings.Default.APIKey, Memo));
+                    Console.WriteLine(" Done.{0}", Environment.NewLine);
+                }
+                catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
             }
-            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+            else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
         }
 
         static void Main(string[] Args)
