@@ -1,0 +1,8 @@
+Syntax:
+  [generate] - generate new pair of serverid and token;
+  [list] - list all registered servers on current Steam account;
+  [version] - show application version information;
+  [getid IP] - get ServerID from IP address (example: 127.0.0.1:27015);
+  [getip ServerID] - get IP address from ServerID;
+  [reset ServerID] - generate new token for selected ServerID;
+  [setmemo ServerID "Message"] - set small comment for selected ServerID.

@@ -165,15 +165,12 @@
   <data name="UserAgent" xml:space="preserve">
     <value>Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0</value>
   </data>
-  <data name="WelcomeFileName" xml:space="preserve">
+  <data name="RFileNameWelcome" xml:space="preserve">
     <value>stm.Resources.WelcomeMsg.txt</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="WelcomeMsg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WelcomeMsg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
-  </data>
-  <data name="WlxMsg" xml:space="preserve">
-    <value>Syntax: stm &lt;generate | list&gt;.</value>
   </data>
   <data name="APIGetServerIPsBySteamIDURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/GetServerIPsBySteamID/v0001/?key={0}&amp;server_steamids[0]={1}&amp;format=xml</value>
@@ -207,5 +204,11 @@
   </data>
   <data name="RegexServerID" xml:space="preserve">
     <value>^[0-9]{17}$</value>
+  </data>
+  <data name="RFileNameSyntax" xml:space="preserve">
+    <value>stm.Resources.Syntax.txt</value>
+  </data>
+  <data name="Syntax" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Syntax.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>

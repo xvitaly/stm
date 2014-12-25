@@ -198,7 +198,7 @@ namespace stm
         static void Main(string[] Args)
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
-            try { ShowSplash(Properties.Resources.WelcomeFileName); } catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+            try { ShowSplash(Properties.Resources.RFileNameWelcome); } catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
 
             if (Regex.IsMatch(Properties.Settings.Default.APIKey, "^[0-9A-F]*$"))
             {
@@ -218,13 +218,13 @@ namespace stm
                             break;
                         case "getip": if (Args.Count() >= 2) { APIGetServerIPsBySteamID(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
-                        case "comment": if (Args.Count() >= 3) { APISetMemo(Args[1], Args[2]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                        case "setmemo": if (Args.Count() >= 3) { APISetMemo(Args[1], Args[2]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                             break;
                         default: Console.WriteLine(Properties.Resources.MsgErrUnknownOption);
                             break;
                     }
                 }
-                else { Console.WriteLine(Properties.Resources.WlxMsg); }
+                else { ShowSplash(Properties.Resources.RFileNameSyntax); }
             }
             else { Console.WriteLine(Properties.Resources.MsgErrNoKey); }
 

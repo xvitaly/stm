@@ -295,20 +295,38 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0.
+        ///   Looks up a localized string similar to stm.Resources.Syntax.txt.
         /// </summary>
-        internal static string UserAgent {
+        internal static string RFileNameSyntax {
             get {
-                return ResourceManager.GetString("UserAgent", resourceCulture);
+                return ResourceManager.GetString("RFileNameSyntax", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to stm.Resources.WelcomeMsg.txt.
         /// </summary>
-        internal static string WelcomeFileName {
+        internal static string RFileNameWelcome {
             get {
-                return ResourceManager.GetString("WelcomeFileName", resourceCulture);
+                return ResourceManager.GetString("RFileNameWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Syntax {
+            get {
+                return ResourceManager.GetString("Syntax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0.
+        /// </summary>
+        internal static string UserAgent {
+            get {
+                return ResourceManager.GetString("UserAgent", resourceCulture);
             }
         }
         
@@ -324,15 +342,6 @@ namespace stm.Properties {
         internal static string WelcomeMsg {
             get {
                 return ResourceManager.GetString("WelcomeMsg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Syntax: stm &lt;generate | list&gt;..
-        /// </summary>
-        internal static string WlxMsg {
-            get {
-                return ResourceManager.GetString("WlxMsg", resourceCulture);
             }
         }
     }
