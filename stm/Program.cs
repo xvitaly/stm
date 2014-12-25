@@ -141,19 +141,25 @@ namespace stm
 
         static void APIResetLoginToken(string ServerID)
         {
-            Console.Write(Properties.Resources.MsgResetRequest, ServerID);
-            try
+            if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
-                XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendAPIRequest(Properties.Resources.APIResetTokenURI, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
-                XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
-                for (int i = 0; i < XMLNList.Count; i++)
+                Console.Write(Properties.Resources.MsgResetRequest, ServerID);
+                try
                 {
-                    Console.WriteLine(Properties.Resources.MsgResetResult, XMLD.GetElementsByTagName("login_token")[i].InnerText);
+                    XmlDocument XMLD = new XmlDocument();
+                    XMLD.LoadXml(SendAPIRequest(Properties.Resources.APIResetTokenURI, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
+                    Console.WriteLine(" Done.{0}", Environment.NewLine);
+                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
+                    for (int i = 0; i < XMLNList.Count; i++)
+                    {
+                        Console.WriteLine(Properties.Resources.MsgResetResult, XMLD.GetElementsByTagName("login_token")[i].InnerText);
+                    }
                 }
+                catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
             }
-            catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+            else
+            {
+            }
         }
 
         static void APIGetServerIPsBySteamID(string ServerID)

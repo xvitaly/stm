@@ -277,6 +277,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^[0-9]{17}$.
+        /// </summary>
+        internal static string RegexServerID {
+            get {
+                return ResourceManager.GetString("RegexServerID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0.
         /// </summary>
         internal static string UserAgent {
