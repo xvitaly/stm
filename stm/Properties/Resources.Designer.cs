@@ -178,6 +178,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}Exception detected: {1}.
+        /// </summary>
+        internal static string MsgGeneralException {
+            get {
+                return ResourceManager.GetString("MsgGeneralException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generating new server token....
         /// </summary>
         internal static string MsgGenTokenProgress {
@@ -313,7 +322,14 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Syntax:
+        ///  [generate] - generate new pair of serverid and token;
+        ///  [list] - list all registered servers on current Steam account;
+        ///  [version] - show application version information;
+        ///  [getid IP] - get ServerID from IP address (example: 127.0.0.1:27015);
+        ///  [getip ServerID] - get IP address from ServerID;
+        ///  [reset ServerID] - generate new token for selected ServerID;
+        ///  [setmemo ServerID &quot;Message&quot;] - set small comment for selected ServerID..
         /// </summary>
         internal static string Syntax {
             get {
