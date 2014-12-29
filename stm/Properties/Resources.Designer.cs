@@ -241,6 +241,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Memo: {0}.
+        /// </summary>
+        internal static string MsgMemoGenAccount {
+            get {
+                return ResourceManager.GetString("MsgMemoGenAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requesting new token for {0}....
         /// </summary>
         internal static string MsgResetRequest {

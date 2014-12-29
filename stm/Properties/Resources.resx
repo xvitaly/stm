@@ -214,4 +214,7 @@
   <data name="MsgGeneralException" xml:space="preserve">
     <value>{0}Exception detected: {1}</value>
   </data>
+  <data name="MsgMemoGenAccount" xml:space="preserve">
+    <value>Memo: {0}</value>
+  </data>
 </root>

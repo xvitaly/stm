@@ -133,6 +133,7 @@ namespace stm
             for (int i = 0; i < XMLNList.Count; i++)
             {
                 Console.WriteLine(Properties.Resources.MsgResGenAccount, XMLD.GetElementsByTagName("steamid")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("login_token")[i].InnerText, Environment.NewLine, XMLD.GetElementsByTagName("appid")[i].InnerText);
+                try { Console.WriteLine(Properties.Resources.MsgMemoGenAccount, XMLD.GetElementsByTagName("memo")[i].InnerText); } catch { /* Do nothing... */ }
                 Console.WriteLine();
             }
         }
