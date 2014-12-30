@@ -80,12 +80,12 @@ namespace stm
 
         static string ValidateAppID(string AppID)
         {
-            return Regex.IsMatch(AppID, "^[0-9]*$") ? AppID : Properties.Resources.DefaultAppID;
+            return Regex.IsMatch(AppID, Properties.Resources.RegexAppID) ? AppID : Properties.Resources.DefaultAppID;
         }
 
         static bool ValidateAPIKey(string APIKey)
         {
-            return Regex.IsMatch(APIKey, "^[0-9A-F]*$");
+            return Regex.IsMatch(APIKey, Properties.Resources.RegexAPIKey);
         }
 
         static void Route(string[] Args)

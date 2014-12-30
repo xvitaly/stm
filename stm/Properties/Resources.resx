@@ -229,4 +229,10 @@
   <data name="MsgResDone" xml:space="preserve">
     <value> Done.{0}</value>
   </data>
+  <data name="RegexAPIKey" xml:space="preserve">
+    <value>^[0-9A-F]*$</value>
+  </data>
+  <data name="RegexAppID" xml:space="preserve">
+    <value>^[0-9]*$</value>
+  </data>
 </root>

@@ -331,6 +331,24 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^[0-9A-F]*$.
+        /// </summary>
+        internal static string RegexAPIKey {
+            get {
+                return ResourceManager.GetString("RegexAPIKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ^[0-9]*$.
+        /// </summary>
+        internal static string RegexAppID {
+            get {
+                return ResourceManager.GetString("RegexAppID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$.
         /// </summary>
         internal static string RegexIPAddress {
