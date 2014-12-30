@@ -217,4 +217,7 @@
   <data name="MsgMemoGenAccount" xml:space="preserve">
     <value>Memo: {0}</value>
   </data>
+  <data name="MsgResDone" xml:space="preserve">
+    <value> Done.{0}</value>
+  </data>
 </root>

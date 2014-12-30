@@ -115,7 +115,7 @@ namespace stm
             Console.Write(Properties.Resources.MsgGenTokenProgress);
             XmlDocument XMLD = new XmlDocument();
             XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APICreateAccountURI, String.Format("appid={0}&key={1}", AppID, Properties.Settings.Default.APIKey)));
-            Console.WriteLine(" Done.{0}", Environment.NewLine);
+            Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
             for (int i = 0; i < XMLNList.Count; i++)
             {
@@ -128,7 +128,7 @@ namespace stm
             Console.Write(Properties.Resources.MsgFetchListProgress);
             XmlDocument XMLD = new XmlDocument();
             XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetAccountListURI, Properties.Settings.Default.APIKey)));
-            Console.WriteLine(" Done.{0}", Environment.NewLine);
+            Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
             for (int i = 0; i < XMLNList.Count; i++)
             {
@@ -145,7 +145,7 @@ namespace stm
                 Console.Write(Properties.Resources.MsgGetIDProgress);
                 XmlDocument XMLD = new XmlDocument();
                 XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetServerSteamIDsByIPURI, Properties.Settings.Default.APIKey, Rx)));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
@@ -162,7 +162,7 @@ namespace stm
                 Console.Write(Properties.Resources.MsgResetRequest, ServerID);
                 XmlDocument XMLD = new XmlDocument();
                 XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APIResetTokenURI, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
@@ -179,7 +179,7 @@ namespace stm
                 Console.Write(Properties.Resources.MsgGetIPProgress);
                 XmlDocument XMLD = new XmlDocument();
                 XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetServerIPsBySteamIDURI, Properties.Settings.Default.APIKey, ServerID)));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
                 {
@@ -195,7 +195,7 @@ namespace stm
             {
                 Console.Write(Properties.Resources.MsgSetMemoProgress, ServerID);
                 SendPOSTRequest(Properties.Resources.APISetMemoURI, String.Format("steamid={0}&key={1}&memo={2}", ServerID, Properties.Settings.Default.APIKey, Memo));
-                Console.WriteLine(" Done.{0}", Environment.NewLine);
+                Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             }
             else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
         }

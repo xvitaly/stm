@@ -250,6 +250,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  Done.{0}.
+        /// </summary>
+        internal static string MsgResDone {
+            get {
+                return ResourceManager.GetString("MsgResDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requesting new login token for {0}....
         /// </summary>
         internal static string MsgResetRequest {
