@@ -142,7 +142,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key..
+        ///   Looks up a localized string similar to No Steam API key entered in config file. Please open stm.exe.config in text editor and enter your API key. You can it one on this page: http://steamcommunity.com/dev/apikey..
         /// </summary>
         internal static string MsgErrNoKey {
             get {
@@ -187,7 +187,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generating new server token....
+        ///   Looks up a localized string similar to Generating new ServerID and login token pair....
         /// </summary>
         internal static string MsgGenTokenProgress {
             get {
@@ -196,7 +196,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trying to get SteamID from requested IP....
+        ///   Looks up a localized string similar to Trying to get ServerID from requested IP....
         /// </summary>
         internal static string MsgGetIDProgress {
             get {
@@ -205,7 +205,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IP: {0}{1}SteamID: {2}.
+        ///   Looks up a localized string similar to IP: {0}{1}ServerID: {2}.
         /// </summary>
         internal static string MsgGetIDResult {
             get {
@@ -214,7 +214,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trying to get IP address from requested SteamID....
+        ///   Looks up a localized string similar to Trying to get IP address from requested ServerID....
         /// </summary>
         internal static string MsgGetIPProgress {
             get {
@@ -223,7 +223,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IP: {0}{1}SteamID: {2}.
+        ///   Looks up a localized string similar to IP: {0}{1}ServerID: {2}.
         /// </summary>
         internal static string MsgGetIPResult {
             get {
@@ -250,7 +250,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Requesting new token for {0}....
+        ///   Looks up a localized string similar to Requesting new login token for {0}....
         /// </summary>
         internal static string MsgResetRequest {
             get {
@@ -268,7 +268,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server&apos;s SteamID: {0}{1}Login token: {2}{3}AppID: {4}.
+        ///   Looks up a localized string similar to ServerID: {0}{1}Login token: {2}{3}AppID: {4}.
         /// </summary>
         internal static string MsgResGenAccount {
             get {
@@ -277,7 +277,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wrong input. The second argument must be a valid server ID. Example: 012345678901234567..
+        ///   Looks up a localized string similar to Wrong input. The second argument must be a valid ServerID. Example: 012345678901234567..
         /// </summary>
         internal static string MsgServerIDWrongInput {
             get {
@@ -332,11 +332,11 @@ namespace stm.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Syntax:
-        ///  [generate] - generate new pair of serverid and token;
+        ///  [generate] - generate a new pair of ServerID and token;
         ///  [list] - list all registered servers on current Steam account;
         ///  [version] - show application version information;
-        ///  [getid IP] - get ServerID from IP address (example: 127.0.0.1:27015);
-        ///  [getip ServerID] - get IP address from ServerID;
+        ///  [getid IP] - resolve ServerID from IP address (example: 127.0.0.1:27015);
+        ///  [getip ServerID] - resolve IP address from ServerID;
         ///  [reset ServerID] - generate new token for selected ServerID;
         ///  [setmemo ServerID &quot;Message&quot;] - set small comment for selected ServerID..
         /// </summary>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MsgResGenAccount" xml:space="preserve">
-    <value>Server's SteamID: {0}{1}Login token: {2}{3}AppID: {4}</value>
+    <value>ServerID: {0}{1}Login token: {2}{3}AppID: {4}</value>
   </data>
   <data name="APICreateAccountURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml</value>
@@ -142,22 +142,22 @@
     <value>440</value>
   </data>
   <data name="MsgGetIDProgress" xml:space="preserve">
-    <value>Trying to get SteamID from requested IP...</value>
+    <value>Trying to get ServerID from requested IP...</value>
   </data>
   <data name="MsgFetchListProgress" xml:space="preserve">
     <value>Fetching list of registered servers...</value>
   </data>
   <data name="MsgGenTokenProgress" xml:space="preserve">
-    <value>Generating new server token...</value>
+    <value>Generating new ServerID and login token pair...</value>
   </data>
   <data name="MsgErrNoKey" xml:space="preserve">
-    <value>No Steam API key entered in config file. Please open file stm.exe.config in text editor and enter your API key.</value>
+    <value>No Steam API key entered in config file. Please open stm.exe.config in text editor and enter your API key. You can it one on this page: http://steamcommunity.com/dev/apikey.</value>
   </data>
   <data name="MsgResetResult" xml:space="preserve">
     <value>New login token: {0}</value>
   </data>
   <data name="MsgGetIDResult" xml:space="preserve">
-    <value>IP: {0}{1}SteamID: {2}</value>
+    <value>IP: {0}{1}ServerID: {2}</value>
   </data>
   <data name="MsgErrUnknownOption" xml:space="preserve">
     <value>Unknown option. Start program without any options to view help.</value>
@@ -179,13 +179,13 @@
     <value>Error: not enough options for selected method!</value>
   </data>
   <data name="MsgGetIPProgress" xml:space="preserve">
-    <value>Trying to get IP address from requested SteamID...</value>
+    <value>Trying to get IP address from requested ServerID...</value>
   </data>
   <data name="MsgGetIPResult" xml:space="preserve">
-    <value>IP: {0}{1}SteamID: {2}</value>
+    <value>IP: {0}{1}ServerID: {2}</value>
   </data>
   <data name="MsgResetRequest" xml:space="preserve">
-    <value>Requesting new token for {0}...</value>
+    <value>Requesting new login token for {0}...</value>
   </data>
   <data name="APISetMemoURI" xml:space="preserve">
     <value>https://api.steampowered.com/IGameServersService/SetMemo/v0001/</value>
@@ -197,7 +197,7 @@
     <value>Wrong input. The second argument must be a valid IP address with port. Example: 127.0.0.1:27015.</value>
   </data>
   <data name="MsgServerIDWrongInput" xml:space="preserve">
-    <value>Wrong input. The second argument must be a valid server ID. Example: 012345678901234567.</value>
+    <value>Wrong input. The second argument must be a valid ServerID. Example: 012345678901234567.</value>
   </data>
   <data name="RegexIPAddress" xml:space="preserve">
     <value>^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$</value>
