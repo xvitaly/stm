@@ -217,6 +217,15 @@
   <data name="MsgMemoGenAccount" xml:space="preserve">
     <value>Memo: {0}</value>
   </data>
+  <data name="APICreateAccountParam" xml:space="preserve">
+    <value>appid={0}&amp;key={1}</value>
+  </data>
+  <data name="APIResetLoginTokenParam" xml:space="preserve">
+    <value>steamid={0}&amp;key={1}</value>
+  </data>
+  <data name="APISetMemoParam" xml:space="preserve">
+    <value>steamid={0}&amp;key={1}&amp;memo={2}</value>
+  </data>
   <data name="MsgResDone" xml:space="preserve">
     <value> Done.{0}</value>
   </data>

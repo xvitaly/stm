@@ -114,7 +114,7 @@ namespace stm
         {
             Console.Write(Properties.Resources.MsgGenTokenProgress);
             XmlDocument XMLD = new XmlDocument();
-            XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APICreateAccountURI, String.Format("appid={0}&key={1}", AppID, Properties.Settings.Default.APIKey)));
+            XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APICreateAccountURI, String.Format(Properties.Resources.APICreateAccountParam, AppID, Properties.Settings.Default.APIKey)));
             Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
             for (int i = 0; i < XMLNList.Count; i++)
@@ -161,7 +161,7 @@ namespace stm
             {
                 Console.Write(Properties.Resources.MsgResetRequest, ServerID);
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APIResetTokenURI, String.Format("steamid={0}&key={1}", ServerID, Properties.Settings.Default.APIKey)));
+                XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APIResetTokenURI, String.Format(Properties.Resources.APIResetLoginTokenParam, ServerID, Properties.Settings.Default.APIKey)));
                 Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -194,7 +194,7 @@ namespace stm
             if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
                 Console.Write(Properties.Resources.MsgSetMemoProgress, ServerID);
-                SendPOSTRequest(Properties.Resources.APISetMemoURI, String.Format("steamid={0}&key={1}&memo={2}", ServerID, Properties.Settings.Default.APIKey, Memo));
+                SendPOSTRequest(Properties.Resources.APISetMemoURI, String.Format(Properties.Resources.APISetMemoParam, ServerID, Properties.Settings.Default.APIKey, Memo));
                 Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             }
             else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }

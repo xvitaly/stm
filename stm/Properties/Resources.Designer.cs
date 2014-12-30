@@ -61,6 +61,15 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to appid={0}&amp;key={1}.
+        /// </summary>
+        internal static string APICreateAccountParam {
+            get {
+                return ResourceManager.GetString("APICreateAccountParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/CreateAccount/v0001/?format=xml.
         /// </summary>
         internal static string APICreateAccountURI {
@@ -97,11 +106,29 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to steamid={0}&amp;key={1}.
+        /// </summary>
+        internal static string APIResetLoginTokenParam {
+            get {
+                return ResourceManager.GetString("APIResetLoginTokenParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://api.steampowered.com/IGameServersService/ResetLoginToken/v0001/?format=xml.
         /// </summary>
         internal static string APIResetTokenURI {
             get {
                 return ResourceManager.GetString("APIResetTokenURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to steamid={0}&amp;key={1}&amp;memo={2}.
+        /// </summary>
+        internal static string APISetMemoParam {
+            get {
+                return ResourceManager.GetString("APISetMemoParam", resourceCulture);
             }
         }
         
