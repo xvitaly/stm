@@ -203,8 +203,7 @@ namespace stm
 
         static void Main(string[] Args)
         {
-            ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
-            try { ShowSplash(Properties.Resources.RFileNameWelcome); } catch (Exception Ex) { Console.WriteLine("{0}{1}", Environment.NewLine, Ex.Message); }
+            try { ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green); ShowSplash(Properties.Resources.RFileNameWelcome); } catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
 
             if (ValidateAPIKey(Properties.Settings.Default.APIKey))
             {
