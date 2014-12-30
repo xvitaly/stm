@@ -52,7 +52,7 @@ namespace stm
 
             HttpWebResponse HTTPWResp = (HttpWebResponse)WrQ.GetResponse();
 
-            if (HTTPWResp.StatusCode == HttpStatusCode.OK)
+            if ((HTTPWResp.StatusCode == HttpStatusCode.OK) && HTTPWResp.Headers.Get("X-eresult") == "1")
             {
                 using (Stream RespStream = HTTPWResp.GetResponseStream())
                 {
@@ -62,7 +62,8 @@ namespace stm
                     }
                 }
             }
-            
+            else { throw new UnauthorizedAccessException(HTTPWResp.Headers.Get("X-error_message")); }
+
             return Result;
         }
 
