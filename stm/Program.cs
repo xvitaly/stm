@@ -13,6 +13,7 @@ namespace stm
     {
         static void ConfigureConsole(string Title, ConsoleColor Color)
         {
+            Console.Clear();
             Console.Title = Title;
             Console.ForegroundColor = Color;
         }
