@@ -331,7 +331,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^[0-9A-F]*$.
+        ///   Looks up a localized string similar to ^[0-9A-F]{32}$.
         /// </summary>
         internal static string RegexAPIKey {
             get {
