@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="stm.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="APIKey" Type="System.String" Scope="Application">
+    <Setting Name="APIKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">YOUR KEY HERE!</Value>
     </Setting>
   </Settings>
