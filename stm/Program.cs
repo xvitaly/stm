@@ -93,30 +93,31 @@ namespace stm
         {
             switch (Args[0])
             {
-                case "generate": APICreateAccount((Args.Count() >= 2) ? ValidateAppID(Args[1]) : Properties.Resources.DefaultAppID);
+                case "generate": APICreateAccount(Properties.Settings.Default.APIKey, (Args.Count() >= 2) ? ValidateAppID(Args[1]) : Properties.Resources.DefaultAppID);
                     break;
-                case "list": APIGetAccountList();
+                case "list": APIGetAccountList(Properties.Settings.Default.APIKey);
                     break;
                 case "version": Console.WriteLine(Properties.Resources.AppVerStr, Properties.Resources.AppName, Assembly.GetExecutingAssembly().GetName().Version.ToString());
                     break;
-                case "getid": if (Args.Count() >= 2) { APIGetServerSteamIDsByIP(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                case "getid": if (Args.Count() >= 2) { APIGetServerSteamIDsByIP(Properties.Settings.Default.APIKey, Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                     break;
-                case "reset": if (Args.Count() >= 2) { APIResetLoginToken(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                case "reset": if (Args.Count() >= 2) { APIResetLoginToken(Properties.Settings.Default.APIKey, Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                     break;
-                case "getip": if (Args.Count() >= 2) { APIGetServerIPsBySteamID(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                case "getip": if (Args.Count() >= 2) { APIGetServerIPsBySteamID(Properties.Settings.Default.APIKey, Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                     break;
-                case "setmemo": if (Args.Count() >= 3) { APISetMemo(Args[1], Args[2]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                case "setmemo": if (Args.Count() >= 3) { APISetMemo(Properties.Settings.Default.APIKey, Args[1], Args[2]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
                     break;
                 default: Console.WriteLine(Properties.Resources.MsgErrUnknownOption);
                     break;
             }
         }
 
-        static void APICreateAccount(string AppID)
+        static void APICreateAccount(string APIKey, string AppID)
         {
+            if (!ValidateAPIKey(APIKey)) { throw new ArgumentException(Properties.Resources.MsgErrNoKey); }
             Console.Write(Properties.Resources.MsgGenTokenProgress);
             XmlDocument XMLD = new XmlDocument();
-            XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APICreateAccountURI, String.Format(Properties.Resources.APICreateAccountParam, AppID, Properties.Settings.Default.APIKey)));
+            XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APICreateAccountURI, String.Format(Properties.Resources.APICreateAccountParam, AppID, APIKey)));
             Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
             for (int i = 0; i < XMLNList.Count; i++)
@@ -125,11 +126,12 @@ namespace stm
             }
         }
 
-        static void APIGetAccountList()
+        static void APIGetAccountList(string APIKey)
         {
+            if (!ValidateAPIKey(APIKey)) { throw new ArgumentException(Properties.Resources.MsgErrNoKey); }
             Console.Write(Properties.Resources.MsgFetchListProgress);
             XmlDocument XMLD = new XmlDocument();
-            XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetAccountListURI, Properties.Settings.Default.APIKey)));
+            XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetAccountListURI, APIKey)));
             Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
             for (int i = 0; i < XMLNList.Count; i++)
@@ -140,13 +142,14 @@ namespace stm
             }
         }
 
-        static void APIGetServerSteamIDsByIP(string Rx)
+        static void APIGetServerSteamIDsByIP(string APIKey, string Rx)
         {
+            if (!ValidateAPIKey(APIKey)) { throw new ArgumentException(Properties.Resources.MsgErrNoKey); }
             if (Regex.IsMatch(Rx, Properties.Resources.RegexIPAddress))
             {
                 Console.Write(Properties.Resources.MsgGetIDProgress);
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetServerSteamIDsByIPURI, Properties.Settings.Default.APIKey, Rx)));
+                XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetServerSteamIDsByIPURI, APIKey, Rx)));
                 Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -157,13 +160,14 @@ namespace stm
             else { Console.WriteLine(Properties.Resources.MsgIPAddrWrongInput); }
         }
 
-        static void APIResetLoginToken(string ServerID)
+        static void APIResetLoginToken(string APIKey, string ServerID)
         {
+            if (!ValidateAPIKey(APIKey)) { throw new ArgumentException(Properties.Resources.MsgErrNoKey); }
             if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
                 Console.Write(Properties.Resources.MsgResetRequest, ServerID);
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APIResetTokenURI, String.Format(Properties.Resources.APIResetLoginTokenParam, ServerID, Properties.Settings.Default.APIKey)));
+                XMLD.LoadXml(SendPOSTRequest(Properties.Resources.APIResetTokenURI, String.Format(Properties.Resources.APIResetLoginTokenParam, ServerID, APIKey)));
                 Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("response");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -174,13 +178,14 @@ namespace stm
             else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
         }
 
-        static void APIGetServerIPsBySteamID(string ServerID)
+        static void APIGetServerIPsBySteamID(string APIKey, string ServerID)
         {
+            if (!ValidateAPIKey(APIKey)) { throw new ArgumentException(Properties.Resources.MsgErrNoKey); }
             if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
                 Console.Write(Properties.Resources.MsgGetIPProgress);
                 XmlDocument XMLD = new XmlDocument();
-                XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetServerIPsBySteamIDURI, Properties.Settings.Default.APIKey, ServerID)));
+                XMLD.LoadXml(SendGETRequest(String.Format(Properties.Resources.APIGetServerIPsBySteamIDURI, APIKey, ServerID)));
                 Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("message");
                 for (int i = 0; i < XMLNList.Count; i++)
@@ -191,12 +196,13 @@ namespace stm
             else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
         }
 
-        static void APISetMemo(string ServerID, string Memo)
+        static void APISetMemo(string APIKey, string ServerID, string Memo)
         {
+            if (!ValidateAPIKey(APIKey)) { throw new ArgumentException(Properties.Resources.MsgErrNoKey); }
             if (Regex.IsMatch(ServerID, Properties.Resources.RegexServerID))
             {
                 Console.Write(Properties.Resources.MsgSetMemoProgress, ServerID);
-                SendPOSTRequest(Properties.Resources.APISetMemoURI, String.Format(Properties.Resources.APISetMemoParam, ServerID, Properties.Settings.Default.APIKey, Memo));
+                SendPOSTRequest(Properties.Resources.APISetMemoURI, String.Format(Properties.Resources.APISetMemoParam, ServerID, APIKey, Memo));
                 Console.WriteLine(Properties.Resources.MsgResDone, Environment.NewLine);
             }
             else { Console.WriteLine(Properties.Resources.MsgServerIDWrongInput); }
@@ -206,15 +212,12 @@ namespace stm
         {
             try { ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green); ShowSplash(Properties.Resources.RFileNameWelcome); } catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
 
-            if (ValidateAPIKey(Properties.Settings.Default.APIKey))
+            if (Args.Count() > 0)
             {
-                if (Args.Count() > 0)
-                {
-                    try { Route(Args); } catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
-                }
-                else { ShowSplash(Properties.Resources.RFileNameSyntax); }
+                try { Route(Args); }
+                catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
             }
-            else { Console.WriteLine(Properties.Resources.MsgErrNoKey); }
+            else { ShowSplash(Properties.Resources.RFileNameSyntax); }
 
             #if DEBUG
             Console.ReadKey();
