@@ -169,7 +169,7 @@ namespace stm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Steam API key entered in config file. Please open stm.exe.config in text editor and enter your API key. You can find it one on this page: http://steamcommunity.com/dev/apikey..
+        ///   Looks up a localized string similar to No Steam API key entered. Please set it by using setkey parameter. You can find or receive your API key on this webpage: http://steamcommunity.com/dev/apikey..
         /// </summary>
         internal static string MsgErrNoKey {
             get {

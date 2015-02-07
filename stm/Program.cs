@@ -222,8 +222,7 @@ namespace stm
 
             if (Args.Count() > 0)
             {
-                try { Route(Args); }
-                catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
+                try { Route(Args); } catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
             }
             else { ShowSplash(Properties.Resources.RFileNameSyntax); }
 

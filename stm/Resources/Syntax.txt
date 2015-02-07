@@ -1,4 +1,5 @@
 Syntax:
+  [setkey APIKey] - set Steam Web API key;
   [generate] - generate a new pair of ServerID and token;
   [list] - list all registered servers on current Steam account;
   [version] - show application version information;

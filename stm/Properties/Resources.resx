@@ -151,7 +151,7 @@
     <value>Generating new ServerID and login token pair...</value>
   </data>
   <data name="MsgErrNoKey" xml:space="preserve">
-    <value>No Steam API key entered in config file. Please open stm.exe.config in text editor and enter your API key. You can find it one on this page: http://steamcommunity.com/dev/apikey.</value>
+    <value>No Steam API key entered. Please set it by using setkey parameter. You can find or receive your API key on this webpage: http://steamcommunity.com/dev/apikey.</value>
   </data>
   <data name="MsgResetResult" xml:space="preserve">
     <value>New login token: {0}</value>
