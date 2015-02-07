@@ -235,4 +235,10 @@
   <data name="RegexAppID" xml:space="preserve">
     <value>^[0-9]*$</value>
   </data>
+  <data name="MsgKeyIncorrect" xml:space="preserve">
+    <value>Incorrect Steam API key entered. Please try again later.</value>
+  </data>
+  <data name="MsgKeySet" xml:space="preserve">
+    <value>Steam Web API key has been successfully set. You can now execute all queries.</value>
+  </data>
 </root>

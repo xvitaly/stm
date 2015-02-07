@@ -268,6 +268,24 @@ namespace stm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect Steam API key entered. Please try again later..
+        /// </summary>
+        internal static string MsgKeyIncorrect {
+            get {
+                return ResourceManager.GetString("MsgKeyIncorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steam Web API key has been successfully set. You can now execute all queries..
+        /// </summary>
+        internal static string MsgKeySet {
+            get {
+                return ResourceManager.GetString("MsgKeySet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Memo: {0}.
         /// </summary>
         internal static string MsgMemoGenAccount {
