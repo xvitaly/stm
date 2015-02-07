@@ -93,6 +93,8 @@ namespace stm
         {
             switch (Args[0])
             {
+                case "setkey": if (Args.Count() >= 2) { APISetKey(Args[1]); } else { Console.WriteLine(Properties.Resources.MsgErrNotEnough); }
+                    break;
                 case "generate": APICreateAccount(Properties.Settings.Default.APIKey, (Args.Count() >= 2) ? ValidateAppID(Args[1]) : Properties.Resources.DefaultAppID);
                     break;
                 case "list": APIGetAccountList(Properties.Settings.Default.APIKey);
@@ -110,6 +112,12 @@ namespace stm
                 default: Console.WriteLine(Properties.Resources.MsgErrUnknownOption);
                     break;
             }
+        }
+
+        static void APISetKey(string APIKey)
+        {
+            if (ValidateAPIKey(APIKey)) { Properties.Settings.Default.APIKey = APIKey; Properties.Settings.Default.Save(); } else { throw new ArgumentException(Properties.Resources.MsgKeyIncorrect); }
+            Console.WriteLine(Properties.Resources.MsgKeySet);
         }
 
         static void APICreateAccount(string APIKey, string AppID)
