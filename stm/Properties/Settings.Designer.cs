@@ -46,5 +46,17 @@ namespace stm.Properties {
                 this["HideSplash"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CleanConsole {
+            get {
+                return ((bool)(this["CleanConsole"]));
+            }
+            set {
+                this["CleanConsole"] = value;
+            }
+        }
     }
 }
