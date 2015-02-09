@@ -34,5 +34,17 @@ namespace stm.Properties {
                 this["APIKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HideSplash {
+            get {
+                return ((bool)(this["HideSplash"]));
+            }
+            set {
+                this["HideSplash"] = value;
+            }
+        }
     }
 }

@@ -218,7 +218,7 @@ namespace stm
 
         static void Main(string[] Args)
         {
-            try { ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green); ShowSplash(Properties.Resources.RFileNameWelcome); } catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
+            try { ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green); if (!Properties.Settings.Default.HideSplash) { ShowSplash(Properties.Resources.RFileNameWelcome); } } catch (Exception Ex) { Console.WriteLine(Properties.Resources.MsgGeneralException, Environment.NewLine, Ex.Message); }
 
             if (Args.Count() > 0)
             {
