@@ -5,5 +5,5 @@ Syntax:
   [version] - show application version information;
   [getid IP] - resolve ServerID from IP address (example: 127.0.0.1:27015);
   [getip ServerID] - resolve IP address from ServerID;
-  [reset ServerID] - generate new token for selected ServerID;
+  [reset ServerID] - generate a new token for selected ServerID;
   [setmemo ServerID "Message"] - set small comment for selected ServerID.
