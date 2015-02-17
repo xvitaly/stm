@@ -4,7 +4,7 @@ Simple Server Manager can be used to generate, reset or view tokens for Steam ga
 
 Getting started
 ===
-Execute `stm setkey API_KEY` to enter your Steam Web API key (replace *API_KEY* with your Steam Web API key). You can find or get it on this page: http://steamcommunity.com/dev/apikey.
+Unpack, enter directory and execute `stm setkey APIKey` to enter your Steam Web API key (replace *APIKey* with your Steam Web API key). You can find or get it on this page: http://steamcommunity.com/dev/apikey.
 
 Syntax
 ===
