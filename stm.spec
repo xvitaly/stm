@@ -33,7 +33,7 @@ cp -fpr %_builddir/* %{buildroot}/usr/share
 
 # Creating launcher...
 echo "#!/bin/sh" > %{buildroot}/usr/bin/%{name}
-echo "mono /usr/share/%{name}/%{name}.exe" >> %{buildroot}/usr/bin/%{name}
+echo "/usr/bin/mono \"/usr/share/%{name}/%{name}.exe\" \"\$@\"" >> %{buildroot}/usr/bin/%{name}
 
 # Making our script executtable...
 chmod +x %{buildroot}/usr/bin/%{name}
