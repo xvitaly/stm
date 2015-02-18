@@ -2,7 +2,8 @@ Name: stm
 Version: 0.4
 Release: 1
 Group: Applications/Other
-Source: stm_03.tar.gz
+Source: %{name}-%{version}.tar.gz
+BuildArch: noarch
 Summary: Simple Server Manager
 URL: https://github.com/xvitaly/stm
 License: GPLv3
@@ -44,5 +45,8 @@ find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manif
 %defattr(-,root,root)
 
 %changelog
+* Wed Jan 18 2015 V1TSK <vitaly@easycoding.org>
+- Updated SPEC file. Changed Arch to noarch.
+
 * Mon Jan 16 2015 V1TSK <vitaly@easycoding.org>
 - First RPM release for Fedora/openSUSE.
