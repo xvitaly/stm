@@ -1,4 +1,4 @@
-Intro [![Build Status](https://travis-ci.org/xvitaly/stm.svg?branch=master)](https://travis-ci.org/xvitaly/stm)
+Intro
 ===
 Simple Server Manager can be used to generate, reset or view tokens for Steam game servers. This tool is completely free and open-source.
 
